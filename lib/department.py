@@ -22,3 +22,10 @@ def create_table(cls):
     """
     CURSOR.executes(sql)
     CONN.commit()
+
+
+@classmethod
+def delete_table(cls):
+    sql ="""
+    DROP TABLE IF 
+    """
