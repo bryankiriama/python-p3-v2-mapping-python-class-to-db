@@ -14,7 +14,7 @@ class Department:
 @classmethod
 def create_table(cls):
     sql = """
-    CREATE TABLE IF NOT EXISTS departsments(
+    CREATE TABLE IF NOT EXISTS departments(
     id INTEGER PRIMARY,
     name TEXT,
      location TEXT
@@ -24,8 +24,23 @@ def create_table(cls):
     CONN.commit()
 
 
-@classmethod
-def delete_table(cls):
-    sql ="""
-    DROP TABLE IF 
+# @classmethod
+# def delete_table(cls):
+#     sql ="""
+#     DROP TABLE IF DOESNT EXIST
+#     """
+#     CURSOR.executes(sql)
+#     CONN.commit()
+
+def save (self):
+    sql = """
+    INSERT INTO department(name, location) VALUES (?, ?)
     """
+    CURSOR.execute(sql, (self.name, self.location))
+    CONN.commit()
+
+    self.id = CURSOR.lastrowid
+
+
+    @classmethod
+    def create (cls, name, location)
